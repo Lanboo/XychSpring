@@ -203,7 +203,7 @@ public class DefaultListableBeanFactory implements BeanFactory
                 }
                 catch(IOException e)
                 {
-                    e.printStackTrace();
+                    throw new RuntimeException("关闭文件流失败", e);
                 }
             }
         }
