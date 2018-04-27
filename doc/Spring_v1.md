@@ -97,20 +97,20 @@ private void doLoadConfig(String location)
  */
 private void doScanner(String packageName)
 {
-//获取basePackage的真实路径
-URL url = this.getClass().getClassLoader().getResource(packageName.replaceAll("\\.", "/"));
-File packageDir = new File(url.getFile());
-for(File file : packageDir.listFiles())
-{
-    if(file.isDirectory())
+    //获取basePackage的真实路径
+    URL url = this.getClass().getClassLoader().getResource(packageName.replaceAll("\\.", "/"));
+    File packageDir = new File(url.getFile());
+    for(File file : packageDir.listFiles())
     {
-        doScanner(packageName + "." + file.getName());
+        if(file.isDirectory())
+        {
+            doScanner(packageName + "." + file.getName());
+        }
+        else if(file.getName().endsWith(".class"))
+        {
+            this.classNames.add(packageName + "." + file.getName().replace(".class", ""));
+        }
     }
-    else if(file.getName().endsWith(".class"))
-    {
-        this.classNames.add(packageName + "." + file.getName().replace(".class", ""));
-    }
-}
 }
 ```
 
@@ -237,7 +237,7 @@ public class Student
 
     @Autowired
     private Teacher teacher;
-    
+
     @Autowired
     @Qualifier("glassCap")
     private Cap cap;
