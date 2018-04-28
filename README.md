@@ -14,7 +14,7 @@
 > 3. 注册<br>
 > 4. 依赖注入<br>
 
-[Spring V1](doc/Spring_v1.md)
+[Spring V1](doc/Spring_IOC_V1.md)
 
 > 1. 实现了`BeanFactory.getBean(String beanName)`
 > 2. 实现了注解`@Component`、`@Autowired`、`@Qualifier`
