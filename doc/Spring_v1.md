@@ -270,3 +270,12 @@ com.xych.spring.v1.bean.Teacher@3a4afd8d
 com.xych.spring.v1.bean.GlassCap@6d1e7682
 */
 ```
+
+## 3、总结
+> 1. 实现了`BeanFactory.getBean(String beanName)`
+> 2. 实现了注解`@Component`、`@Autowired`、`@Qualifier`
+
+未完善部分：
+
+> 1. 实现过程过于简单，不符合单一职责
+> 2. `@Autowired`、`@Qualifier`只在`ElementType.FIELD`级别上有效
