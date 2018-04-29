@@ -14,7 +14,7 @@
 > 3. 注册<br>
 > 4. 依赖注入<br>
 
-[Spring V1](doc/Spring_IOC_V1.md)
+[Spring IOC V1](doc/Spring_IOC_V1.md)
 
 > 1. 实现了`BeanFactory.getBean(String beanName)`
 > 2. 实现了注解`@Component`、`@Autowired`、`@Qualifier`
@@ -23,3 +23,11 @@
 
 > 1. 实现过程过于简单，不符合单一职责
 > 2. `@Autowired`、`@Qualifier`只在`ElementType.FIELD`级别上有效
+
+### 1.2、v2版本
+[Spring IOC V2](doc/Spring_IOC_V2.md)
+> - 1、IOC初始化<br>
+>   - 1.1、定位<br>
+>   - 1.2、加载<br>
+>   - 1.3、注册<br>
+> - 2、依赖注入<br>
