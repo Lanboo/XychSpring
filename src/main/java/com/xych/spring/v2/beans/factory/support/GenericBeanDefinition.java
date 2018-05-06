@@ -8,6 +8,7 @@ public class GenericBeanDefinition implements BeanDefinition
     private volatile Object beanClass;
     private String scope = SCOPE_DEFAULT;
     private boolean lazyInit = false;
+    private String[] dependsOn;
 
     @Override
     public void setBeanClassName(String beanClassName)
@@ -63,5 +64,17 @@ public class GenericBeanDefinition implements BeanDefinition
     public void setLazyInit(boolean lazyInit)
     {
         this.lazyInit = lazyInit;
+    }
+
+    @Override
+    public String[] getDependsOn()
+    {
+        return dependsOn;
+    }
+
+    @Override
+    public void setDependsOn(String... dependsOn)
+    {
+        this.dependsOn = dependsOn;
     }
 }

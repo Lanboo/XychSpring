@@ -21,4 +21,10 @@ public interface BeanDefinition
 
     boolean isLazyInit();
 
+    /**
+     * 获取该Bean所依赖的Bean的名称
+     */
+    String[] getDependsOn();
+
+    void setDependsOn(String... dependsOn);
 }
