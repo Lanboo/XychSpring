@@ -7,15 +7,9 @@ import com.xych.spring.v2.beans.factory.BeanFactory;
 import com.xych.spring.v2.beans.factory.config.BeanDefinition;
 import com.xych.spring.v2.util.StringUtils;
 
-public class DefaultListableBeanFactory implements BeanFactory, BeanDefinitionRegistry
+public class DefaultListableBeanFactory extends AbstractBeanFactory implements BeanFactory, BeanDefinitionRegistry
 {
     private final Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>(256);
-
-    @Override
-    public Object getBean(String beanName)
-    {
-        return null;
-    }
 
     /**
      * 在Spring中，此方法会做N多检查，才会放入beanDefinitionMap
@@ -41,7 +35,12 @@ public class DefaultListableBeanFactory implements BeanFactory, BeanDefinitionRe
     @Override
     public BeanDefinition getBeanDefinition(String beanName)
     {
-        return this.beanDefinitionMap.get(beanName);
+        BeanDefinition bd = this.beanDefinitionMap.get(beanName);
+        if(bd == null)
+        {
+            throw new RuntimeException("No bean named '" + beanName + "' found in " + this);
+        }
+        return bd;
     }
 
     @Override
